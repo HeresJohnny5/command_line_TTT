@@ -1,5 +1,5 @@
-require_relative "tic_tac_toe_functions.rb"
-require "minitest/autorun"
+require_relative 'tic_tac_toe_functions.rb'
+require 'minitest/autorun'
 
 class TestBoard < Minitest::Test
 	def test_update_new_board_with_X_at_first_position_top_left
@@ -101,6 +101,3 @@ class TestGameWon < Minitest::Test
 		assert_equal(true, game_won?(board))
 	end
 end
-
-#game_tied?
-#game_over?

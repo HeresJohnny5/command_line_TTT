@@ -28,7 +28,6 @@ def marker_choice()
 end
 
 def player_two(player_one_marker)
-	# player_one_marker is the result of function marker_choice
 	if player_one_marker == "X"
 		"O"
 	else
@@ -46,44 +45,36 @@ def display_board(board)
 end
 
 def player_one_move(board, player_one_marker)
-	# board is ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-	# player_one_marker is the result of function marker_choice
 	puts "Please enter a valid move between the numbers one and nine."
 	player_input = gets.strip
 	user_input = (player_input.to_i) - 1
 
 	if user_input.between?(0, 8) && board[user_input] == "#{player_input}"
 		board[user_input] = "#{player_one_marker}"
-		display_board(board)
-		# this method call updates the board 
+
+		display_board(board) 
 	else
 		puts "#{user_input + 1} is a invalid option."
 		player_one_move(board, player_one_marker)
-		# this method call repeats the function player_one_move
 	end
 end
 
 def player_two_move(board, player_two_marker)
-	# board is ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-	# player_two_marker is the result of function player_two
 	puts "Please enter a valid move between the numbers one and nine."
 	player_input = gets.strip
 	user_input = (player_input.to_i) - 1
 
 	if user_input.between?(0, 8) && board[user_input] == "#{player_input}"
 		board[user_input] = "#{player_two_marker}"
+
 		display_board(board)
-		# this method call updates the board
 	else
 		puts "#{user_input + 1} is a invalid option."
 		player_two_move(board, player_two_marker)
-		# this method call repeats the function player_one_move
 	end
 end
 
 def game_won?(board, marker)
-	# board is ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-	# marker is either player_one_marker or player_two_marker depending on which player is being passed
 	result = false
 	winning_combo = [[board[0],board[1],board[2]],
 						[board[3],board[4],board[5]],
@@ -104,9 +95,7 @@ def game_won?(board, marker)
  end
 
 def game_tied?(board)
-	# board is ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 	if board.count(" ") == 0
-	# !(ttt_board.include?(" "))
 		puts "The game is a tie!"
 	end
 end
